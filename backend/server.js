@@ -36,13 +36,18 @@ app.use('/sca',scaRouter);
 const farmerRouter = require('./routes/farmer');
 app.use('/sca',scaRouter);
 
+app.set('view engine','ejs');                   //Templating engine
+app.use(express.static('views'));
+app.get('/home',(req,res)=>{
 
+     res.render('home.ejs');
+});
 
 //React server render
-// app.use(express.static(path.join(__dirname, 'frontend/build')));
-// app.get('/*', function (req, res) {
-//    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
-// });
+app.use(express.static(path.join(__dirname, 'seedfront/build')));
+app.get('/*', function (req, res) {
+   res.sendFile(path.join(__dirname, 'seedfront/build', 'index.html'));
+});
 
 
 app.use(cors());
