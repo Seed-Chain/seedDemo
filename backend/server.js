@@ -60,6 +60,6 @@ mongoose.connect(mongoURI,{useNewUrlParser : true,useUnifiedTopology: true},()=>
 
 
 /* Server config */
-module.exports = app.listen(5000,()=>{
+module.exports = app.listen(3000,()=>{
     console.log('express server started');
 });
